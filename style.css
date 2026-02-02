@@ -130,3 +130,32 @@ h2 {
   font-size: 0.9rem;
   color: var(--muted);
 }
+/* Smaller card variant for side projects */
+.flip-card.small .flip-inner {
+  height: 170px;
+}
+
+.flip-card.small .flip-front h3 {
+  font-size: 1.05rem;
+}
+
+.flip-card.small .flip-front p,
+.flip-card.small .flip-back p {
+  font-size: 0.85rem;
+}
+
+/* Side projects list */
+.side-list {
+  text-align: left;
+  margin-top: 10px;
+}
+
+.side-list li {
+  margin-bottom: 6px;
+}
+
+.side-list a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
