@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <title>rotsl — Portfolio</title>
@@ -9,92 +9,98 @@
 <body>
   <div class="container">
     <header>
-      <h1>Rohan (rotsl)</h1>
-      <p class="subtitle">
-        Developer · Automation · Computer Vision · Applied ML
-      </p>
+      <div>
+        <h1>Rohan (rotsl)</h1>
+        <p class="subtitle">
+          Automation · Embedded Systems · Computer Vision · Applied ML
+        </p>
+      </div>
+      <button id="theme-toggle">Toggle theme</button>
     </header>
 
     <section>
-      <h2>About</h2>
-      <p>
-        I work on automation systems, embedded tooling, computer vision,
-        and applied machine learning. Some projects are private; links are
-        provided for reference and context.
-      </p>
-    </section>
-
-    <section>
       <h2>Projects</h2>
-      <ul>
-        <li>
-          <a href="https://github.com/rotsl/gpubuild" target="_blank">GPU Build Automation</a>
-          — system-level automation tooling
-        </li>
-        <li>
-          <a href="https://github.com/rotsl/Automator" target="_blank">Automator</a>
-          — workflow and task automation
-        </li>
-        <li>
-          <a href="https://github.com/rotsl/automator-pi" target="_blank">Automator Pi</a>
-          — Raspberry Pi automation stack
-        </li>
-        <li>
-          <a href="https://github.com/rotsl/diagnostics-pi" target="_blank">Diagnostics Pi</a>
-          — embedded diagnostics and monitoring
-        </li>
-        <li>
-          <a href="https://github.com/rotsl/IMGProcessingScikit" target="_blank">
-            Image Processing (scikit-image)
-          </a>
-          — classical computer vision experiments
-        </li>
-        <li>
-          <a href="https://github.com/rorexus/DermaScanAI" target="_blank">
-            DermaScanAI
-          </a>
-          — ML-based dermatology image analysis
-        </li>
-      </ul>
+      <div class="grid">
+        <div class="card">
+          <h3>GPU Build Automation</h3>
+          <p>System-level automation for GPU environments.</p>
+          <a href="https://github.com/rotsl/gpubuild" target="_blank">View repo</a>
+        </div>
+
+        <div class="card">
+          <h3>Automator</h3>
+          <p>Workflow and task automation tooling.</p>
+          <a href="https://github.com/rotsl/Automator" target="_blank">View repo</a>
+        </div>
+
+        <div class="card">
+          <h3>Automator Pi</h3>
+          <p>Raspberry Pi–focused automation stack.</p>
+          <a href="https://github.com/rotsl/automator-pi" target="_blank">View repo</a>
+        </div>
+
+        <div class="card">
+          <h3>Diagnostics Pi</h3>
+          <p>Embedded diagnostics and monitoring.</p>
+          <a href="https://github.com/rotsl/diagnostics-pi" target="_blank">View repo</a>
+        </div>
+
+        <div class="card">
+          <h3>Image Processing (scikit-image)</h3>
+          <p>Classical computer vision experiments.</p>
+          <a href="https://github.com/rotsl/IMGProcessingScikit" target="_blank">View repo</a>
+        </div>
+
+        <div class="card">
+          <h3>DermaScanAI</h3>
+          <p>ML-based dermatology image analysis.</p>
+          <a href="https://github.com/rorexus/DermaScanAI" target="_blank">View repo</a>
+        </div>
+      </div>
     </section>
 
     <section>
-      <h2>Research & ML</h2>
-      <ul>
-        <li>
-          <a href="https://www.kaggle.com/models/rbrtsl/cfu-detect" target="_blank">
-            CFU Detect Model (Kaggle)
-          </a>
-        </li>
-        <li>
-          <a href="https://www.kaggle.com/code/rbrtsl/cfu-petri-test" target="_blank">
-            CFU Petri Test Notebook (Kaggle)
-          </a>
-        </li>
-      </ul>
+      <h2>Research & Models</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>CFU Detect</h3>
+          <p>Kaggle model for CFU detection.</p>
+          <a href="https://www.kaggle.com/models/rbrtsl/cfu-detect" target="_blank">View</a>
+        </div>
+
+        <div class="card">
+          <h3>CFU Petri Test</h3>
+          <p>Notebook for CFU analysis.</p>
+          <a href="https://www.kaggle.com/code/rbrtsl/cfu-petri-test" target="_blank">View</a>
+        </div>
+      </div>
     </section>
 
     <section>
       <h2>Profiles</h2>
-      <ul>
-        <li>
-          <a href="https://www.researchgate.net/profile/Rohan-B-R-2?ev=hdr_xprf" target="_blank">
-            ResearchGate
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/rotsl" target="_blank">GitHub (Primary)</a>
-        </li>
-        <li>
-          <a href="https://github.com/rorexus" target="_blank">GitHub (Secondary)</a>
-        </li>
-      </ul>
+      <div class="grid">
+        <div class="card">
+          <h3>ResearchGate</h3>
+          <a href="https://www.researchgate.net/profile/Rohan-B-R-2?ev=hdr_xprf" target="_blank">Visit</a>
+        </div>
+
+        <div class="card">
+          <h3>GitHub (Primary)</h3>
+          <a href="https://github.com/rotsl" target="_blank">Visit</a>
+        </div>
+
+        <div class="card">
+          <h3>GitHub (Secondary)</h3>
+          <a href="https://github.com/rorexus" target="_blank">Visit</a>
+        </div>
+      </div>
     </section>
 
     <div class="footer">
       © Rohan — hosted on GitHub Pages
     </div>
   </div>
+
+  <script src="theme.js"></script>
 </body>
 </html>
-
