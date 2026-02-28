@@ -25,18 +25,20 @@ body{
     linear-gradient(180deg,var(--bg1),var(--bg2));
   overflow-x:hidden;
   transition:background .4s ease;
+  position:relative;
+  min-height:100vh;
 }
 
-/* ================= FLOATING GREEK + AMOEBA ================= */
+/* ================= FLOATING SYMBOLS ================= */
 
 .symbol{
   position:fixed;
   bottom:-60px;
   font-size:28px;
-  opacity:.18;
+  opacity:.15;
   pointer-events:none;
   animation:floatUp linear infinite;
-  z-index:1;
+  z-index:0;
 }
 
 @keyframes floatUp{
@@ -51,7 +53,6 @@ body{
   }
 }
 
-/* Different positions & speeds */
 .s1{ left:8%; animation-duration:22s; }
 .s2{ left:20%; animation-duration:18s; }
 .s3{ left:38%; animation-duration:25s; }
@@ -69,22 +70,13 @@ body{
   z-index:2;
 }
 
+section{
+  margin-bottom:5rem;
+  position:relative;
+}
+
 .subtitle{
   color:var(--muted);
-  margin-top:-0.5rem;
-}
-
-section{
-  margin-bottom:4rem;
-}
-
-h1{
-  font-size:3rem;
-  margin-bottom:0.3rem;
-}
-
-h2{
-  margin-bottom:1.2rem;
 }
 
 /* ================= GRID ================= */
@@ -129,9 +121,7 @@ h2{
   backface-visibility:hidden;
 }
 
-.flip-front p{
-  color:var(--muted);
-}
+.flip-front p{ color:var(--muted); }
 
 .flip-back{
   transform:rotateY(180deg);
@@ -148,38 +138,26 @@ h2{
   text-decoration:underline;
 }
 
-.side-list{
-  padding-left:1rem;
-  text-align:left;
-}
-
-.footer{
-  text-align:center;
-  opacity:0.7;
-  margin-top:3rem;
-  font-size:0.9rem;
-}
-
-/* ================= DOG (MOVES BETWEEN SECTIONS) ================= */
+/* ================= DOG ================= */
 
 .mascot{
   position:absolute;
-  left:20px;
+  left:10px;
   font-size:32px;
+  z-index:50;
   transition:top 1.2s ease-in-out;
-  z-index:5;
   pointer-events:none;
 }
 
-/* ================= HANGING BULB ================= */
+/* ================= BULB ================= */
 
 .bulb-wrap{
   position:fixed;
   top:0;
-  right:50px;
-  width:60px;
-  height:180px;
-  z-index:10;
+  right:60px;
+  width:80px;
+  height:200px;
+  z-index:100;
 }
 
 .bulb{
@@ -187,58 +165,56 @@ h2{
   top:0;
   left:50%;
   transform:translateX(-50%);
-  width:6px;
+  width:4px;
   height:110px;
-  background:#ddd;
-  border-radius:3px;
-  animation:swing 5s ease-in-out infinite;
+  background:#ccc;
+  animation:swing 4s ease-in-out infinite;
   cursor:pointer;
 }
 
 .bulb::after{
   content:"";
   position:absolute;
-  bottom:-25px;
+  bottom:-30px;
   left:50%;
   transform:translateX(-50%);
-  width:40px;
-  height:40px;
+  width:45px;
+  height:45px;
   background:#fff;
   border-radius:50%;
-  box-shadow:0 0 15px rgba(255,255,255,.3);
+  box-shadow:0 0 25px rgba(255,255,255,.4);
 }
 
 /* Glow */
 .bulb-glow{
   position:absolute;
-  bottom:-70px;
+  bottom:-80px;
   left:50%;
   transform:translateX(-50%);
-  width:250px;
-  height:250px;
+  width:300px;
+  height:300px;
   background:radial-gradient(circle,
-    rgba(255,255,200,.6) 0%,
-    rgba(255,255,200,.3) 40%,
-    rgba(255,255,200,0) 70%);
+    rgba(255,255,180,.7) 0%,
+    rgba(255,255,180,.4) 35%,
+    rgba(255,255,180,0) 70%);
   opacity:0;
   transition:opacity .4s ease;
   pointer-events:none;
 }
 
-/* Swing animation */
 @keyframes swing{
-  0%,100%{ transform:translateX(-50%) rotate(4deg); }
-  50%{ transform:translateX(-50%) rotate(-4deg); }
+  0%,100%{ transform:translateX(-50%) rotate(5deg); }
+  50%{ transform:translateX(-50%) rotate(-5deg); }
 }
 
-/* ================= LIGHT ON MODE ================= */
+/* ================= LIGHT MODE ================= */
 
 body.light-on{
   background:
-    radial-gradient(circle at 85% 0%,
-      rgba(255,255,180,.35),
+    radial-gradient(circle at 90% 0%,
+      rgba(255,255,200,.35),
       transparent 60%),
-    linear-gradient(180deg,#113a32,#14594d);
+    linear-gradient(180deg,#12463b,#1a6d5a);
 }
 
 body.light-on .bulb-glow{
