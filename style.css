@@ -24,31 +24,40 @@ body{
     radial-gradient(900px 600px at 20% 10%, rgba(16,185,129,0.25), transparent 60%),
     linear-gradient(180deg,var(--bg1),var(--bg2));
   overflow-x:hidden;
+  transition:background .4s ease;
 }
 
-/* ================= FLOATING SYMBOLS (CSS ONLY) ================= */
+/* ================= FLOATING GREEK + AMOEBA ================= */
 
 .symbol{
   position:fixed;
+  bottom:-60px;
   font-size:28px;
-  opacity:.15;
-  animation:float 18s linear infinite;
+  opacity:.18;
   pointer-events:none;
+  animation:floatUp linear infinite;
   z-index:1;
 }
 
-@keyframes float{
-  0%{ transform:translateY(100vh) rotate(0deg); }
-  100%{ transform:translateY(-120vh) rotate(360deg); }
+@keyframes floatUp{
+  0%{
+    transform:translateY(0) translateX(0) rotate(0deg);
+  }
+  50%{
+    transform:translateY(-50vh) translateX(40px) rotate(180deg);
+  }
+  100%{
+    transform:translateY(-110vh) translateX(-40px) rotate(360deg);
+  }
 }
 
-/* Random positions */
-.s1{ left:10%; animation-duration:20s; }
-.s2{ left:25%; animation-duration:16s; }
-.s3{ left:40%; animation-duration:22s; }
-.s4{ left:55%; animation-duration:18s; }
-.s5{ left:70%; animation-duration:25s; }
-.s6{ left:85%; animation-duration:19s; }
+/* Different positions & speeds */
+.s1{ left:8%; animation-duration:22s; }
+.s2{ left:20%; animation-duration:18s; }
+.s3{ left:38%; animation-duration:25s; }
+.s4{ left:58%; animation-duration:20s; }
+.s5{ left:75%; animation-duration:30s; font-size:36px; }
+.s6{ left:90%; animation-duration:24s; font-size:34px; }
 
 /* ================= LAYOUT ================= */
 
@@ -60,13 +69,33 @@ body{
   z-index:2;
 }
 
-/* ================= FLIP CARDS ================= */
+.subtitle{
+  color:var(--muted);
+  margin-top:-0.5rem;
+}
+
+section{
+  margin-bottom:4rem;
+}
+
+h1{
+  font-size:3rem;
+  margin-bottom:0.3rem;
+}
+
+h2{
+  margin-bottom:1.2rem;
+}
+
+/* ================= GRID ================= */
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:1.6rem;
 }
+
+/* ================= FLIP CARDS ================= */
 
 .flip-card{
   perspective:1000px;
@@ -77,6 +106,10 @@ body{
   height:230px;
   transform-style:preserve-3d;
   transition:transform .6s ease;
+}
+
+.flip-card.small .flip-inner{
+  height:180px;
 }
 
 .flip-card:hover .flip-inner{
@@ -96,12 +129,14 @@ body{
   backface-visibility:hidden;
 }
 
+.flip-front p{
+  color:var(--muted);
+}
+
 .flip-back{
   transform:rotateY(180deg);
   text-align:center;
 }
-
-.flip-front p{ color:var(--muted); }
 
 .flip-back a{
   color:var(--accent2);
@@ -109,39 +144,103 @@ body{
   font-weight:600;
 }
 
-.flip-back a:hover{ text-decoration:underline; }
+.flip-back a:hover{
+  text-decoration:underline;
+}
 
-/* ================= DOG (CSS LOOP) ================= */
+.side-list{
+  padding-left:1rem;
+  text-align:left;
+}
 
-.dog{
+.footer{
+  text-align:center;
+  opacity:0.7;
+  margin-top:3rem;
+  font-size:0.9rem;
+}
+
+/* ================= DOG (MOVES BETWEEN SECTIONS) ================= */
+
+.mascot{
   position:absolute;
-  bottom:-40px;
-  left:-50px;
+  left:20px;
   font-size:32px;
-  animation:runAcross 12s linear infinite;
+  transition:top 1.2s ease-in-out;
+  z-index:5;
   pointer-events:none;
 }
 
-@keyframes runAcross{
-  0%{ left:-50px; }
-  100%{ left:110%; }
-}
+/* ================= HANGING BULB ================= */
 
-/* ================= BULB ================= */
-
-.bulb{
+.bulb-wrap{
   position:fixed;
   top:0;
-  right:40px;
-  width:8px;
-  height:120px;
-  background:rgba(255,255,255,0.4);
-  border-radius:4px;
-  animation:swing 5s ease-in-out infinite;
-  z-index:3;
+  right:50px;
+  width:60px;
+  height:180px;
+  z-index:10;
 }
 
+.bulb{
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:6px;
+  height:110px;
+  background:#ddd;
+  border-radius:3px;
+  animation:swing 5s ease-in-out infinite;
+  cursor:pointer;
+}
+
+.bulb::after{
+  content:"";
+  position:absolute;
+  bottom:-25px;
+  left:50%;
+  transform:translateX(-50%);
+  width:40px;
+  height:40px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 0 15px rgba(255,255,255,.3);
+}
+
+/* Glow */
+.bulb-glow{
+  position:absolute;
+  bottom:-70px;
+  left:50%;
+  transform:translateX(-50%);
+  width:250px;
+  height:250px;
+  background:radial-gradient(circle,
+    rgba(255,255,200,.6) 0%,
+    rgba(255,255,200,.3) 40%,
+    rgba(255,255,200,0) 70%);
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;
+}
+
+/* Swing animation */
 @keyframes swing{
-  0%,100%{ transform:rotate(3deg); }
-  50%{ transform:rotate(-3deg); }
+  0%,100%{ transform:translateX(-50%) rotate(4deg); }
+  50%{ transform:translateX(-50%) rotate(-4deg); }
+}
+
+/* ================= LIGHT ON MODE ================= */
+
+body.light-on{
+  background:
+    radial-gradient(circle at 85% 0%,
+      rgba(255,255,180,.35),
+      transparent 60%),
+    linear-gradient(180deg,#113a32,#14594d);
+}
+
+body.light-on .bulb-glow{
+  opacity:1;
 }
