@@ -1,416 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>rotsl</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="description" content="rotsl — research automation, computer vision, embedded systems, and applied machine learning projects." />
-  <meta name="robots" content="index, follow" />
-
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rotsl</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- Overlay symbols (does NOT take layout space) -->
-  <canvas id="symbol-canvas" aria-hidden="true"></canvas>
-
-  <!-- Hanging bulb (top-right like html2) -->
-  <div class="bulb-wrap" aria-hidden="true">
-    <div id="bulb" class="bulb" title="Toggle light" role="button" tabindex="0">
-      <div class="cord"></div>
-      <div class="socket"></div>
-      <div class="glass"></div>
-      <div class="filament"></div>
-      <div class="glow"></div>
-    </div>
-  </div>
-
-  <!-- Lighting overlay -->
-  <div id="light-overlay" class="light-overlay" aria-hidden="true"></div>
-
-  <!-- Dog mascot -->
-  <div id="mascot" class="mascot" aria-hidden="true">🐕</div>
-
-  <main class="shell">
-
-    <!-- HERO -->
-    <section class="hero card">
-      <h1>rotsl</h1>
-      <p class="subtitle">
-        Research Automation · Computer Vision · Embedded Systems · Applied ML
-      </p>
-    </section>
-
-    <!-- ================= MAIN PROJECTS ================= -->
-    <section class="card-section">
-      <h2>Main Projects</h2>
-
-      <div class="grid main-projects">
-
-        <!-- Wisp -->
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>🌬️ Wisp</h3>
-              <p>Context-aware, zero-dependency UI engine for the modern web.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <p>
-                Context-aware semantic styling engine that analyzes HTML structure
-                and auto-generates optimized CSS. Published on npm with 5KB footprint.
-              </p>
-
-              <a href="https://github.com/rotsl/wisp" target="_blank" rel="noopener noreferrer">
-                View repository
-              </a>
-              <br />
-
-              <a href="https://www.npmjs.com/package/@rotsl/wisp" target="_blank" rel="noopener noreferrer">
-                npm package →
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Weave -->
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>🧵 Weave</h3>
-              <p>Lightweight web weaving & dependency management framework.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <p>
-                Modular utility framework for building structured, reusable web
-                components. Distributed via npm with live demo support.
-              </p>
-
-              <a href="https://github.com/rotsl/Weave" target="_blank" rel="noopener noreferrer">
-                View repository
-              </a>
-              <br />
-
-              <a href="https://www.npmjs.com/package/@rotsl/weave" target="_blank" rel="noopener noreferrer">
-                npm package →
-              </a>
-              <br />
-
-              <a href="https://rotsl.github.io/Weave/" target="_blank" rel="noopener noreferrer">
-                Live website →
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- DermaScanAI -->
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>🩺 DermaScanAI</h3>
-              <p>AI-powered dermatological analysis and scanning system.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <p>
-                Computer vision system for dermatological image analysis
-                using deep learning techniques for skin condition detection.
-              </p>
-
-              <a href="https://github.com/rorexus/DermaScanAI" target="_blank" rel="noopener noreferrer">
-                View repository
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Automator -->
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>Automator</h3>
-              <p>Research automation system for microbial plate imaging.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <p>
-                Research automation system for imaging microbial plates.
-                Includes physical operator controls and software-based
-                safety mechanisms.
-              </p>
-
-              <a href="https://github.com/rotsl/Automator" target="_blank" rel="noopener noreferrer">
-                View repository
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Image Processing -->
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>Image Processing (scikit-image)</h3>
-              <p>Classical computer vision pipelines and experiments.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <p>
-                Image processing experiments using scikit-image for
-                segmentation, filtering, and analysis.
-              </p>
-
-              <a href="https://github.com/rotsl/IMGProcessingScikit" target="_blank" rel="noopener noreferrer">
-                View repository
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SIDE PROJECTS ================= -->
-    <section class="card-section">
-      <h2>Side Projects</h2>
-
-      <div class="grid">
-        <div class="flip-card small">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>Supporting & Utility Projects</h3>
-              <p>Automation tooling and companion applications.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <ul class="side-list">
-                <li>
-                  <a href="https://github.com/rotsl/automator-pi" target="_blank" rel="noopener noreferrer">
-                    Automator Pi
-                  </a>
-                  — iOS app for Automator
-                </li>
-                <li>
-                  <a href="https://github.com/rotsl/diagnostics-pi" target="_blank" rel="noopener noreferrer">
-                    Diagnostics Pi
-                  </a>
-                  — iOS diagnostics app for Automator
-                </li>
-                <li>
-                  <a href="https://github.com/rotsl/gpubuild" target="_blank" rel="noopener noreferrer">
-                    GPU Build Automation
-                  </a>
-                  — Physical GPU system setup tooling
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PUBLICATIONS ================= -->
-    <section class="card-section">
-      <h2>Publications</h2>
-
-      <div class="grid">
-
-        <!-- Research Papers -->
-        <div class="flip-card small">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>Research Papers</h3>
-              <p>Academic publications and technical papers.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <ul class="side-list">
-                <li>
-                  <a href="https://www.researchgate.net/publication/400789148_Wisp_A_Context-Aware_Zero-Dependency_Semantic_Styling_Engine_for_the_Modern_Web"
-                     target="_blank" rel="noopener noreferrer">
-                    Wisp: A Context-Aware Zero-Dependency Semantic Styling Engine
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Electronics For You -->
-        <div class="flip-card small">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>Electronics For You</h3>
-              <p>Selected technical publications.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <ul class="side-list">
-                <li><a href="https://www.researchgate.net/publication/295402254_Air_Ioniser" target="_blank" rel="noopener noreferrer">Air Ioniser</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402356_Micro_Inverter" target="_blank" rel="noopener noreferrer">Micro Inverter</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402434_Sequential_device_switching_using_IR" target="_blank" rel="noopener noreferrer">Sequential Device Switching Using IR</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402237_Some_projects_using_wearable_devices" target="_blank" rel="noopener noreferrer">Projects Using Wearable Devices</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402442_Remote_Control" target="_blank" rel="noopener noreferrer">Remote Control</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <footer class="footer">
-      © rotsl · GitHub Pages
-    </footer>
-
-  </main>
-
-  <script>
-    /* ================= SYMBOL OVERLAY (true overlay) ================= */
-    (function () {
-      const canvas = document.getElementById("symbol-canvas");
-      const ctx = canvas.getContext("2d", { alpha: true });
-
-      // IMPORTANT: prevent canvas from contributing to layout
-      // CSS positions it fixed + inset:0; also set width/height here for crisp drawing
-      function resize() {
-        const dpr = Math.max(1, window.devicePixelRatio || 1);
-        canvas.width = Math.floor(window.innerWidth * dpr);
-        canvas.height = Math.floor(window.innerHeight * dpr);
-        canvas.style.width = window.innerWidth + "px";
-        canvas.style.height = window.innerHeight + "px";
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      resize();
-      window.addEventListener("resize", resize);
-
-      const symbols = ["λ","∇","π","Σ","μ","α","β","Δ","∞","⊗","Ω","🦠","→","+","□"];
-      const N = 48;
-
-      const particles = Array.from({ length: N }, () => ({
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-        vx: (Math.random() - 0.5) * 0.9,
-        vy: (Math.random() - 0.5) * 0.9,
-        size: 14 + Math.random() * 26,
-        sym: symbols[Math.floor(Math.random() * symbols.length)],
-        rot: (Math.random() - 0.5) * 0.6,
-        a: 0.12 + Math.random() * 0.14
-      }));
-
-      function step() {
-        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-
-        for (const p of particles) {
-          p.x += p.vx;
-          p.y += p.vy;
-
-          // wrap edges (keeps motion continuous and "overlay-like")
-          if (p.x < -40) p.x = window.innerWidth + 40;
-          if (p.x > window.innerWidth + 40) p.x = -40;
-          if (p.y < -40) p.y = window.innerHeight + 40;
-          if (p.y > window.innerHeight + 40) p.y = -40;
-
-          ctx.save();
-          ctx.globalAlpha = p.a;
-          ctx.translate(p.x, p.y);
-          ctx.rotate(p.rot);
-          ctx.font = `700 ${p.size}px ui-serif, Georgia, serif`;
-          ctx.fillStyle = "#ffffff";
-          ctx.textAlign = "center";
-          ctx.textBaseline = "middle";
-          ctx.fillText(p.sym, 0, 0);
-          ctx.restore();
-        }
-
-        requestAnimationFrame(step);
-      }
-      step();
-    })();
-
-    /* ================= BULB TOGGLE ================= */
-    (function () {
-      const bulb = document.getElementById("bulb");
-      if (!bulb) return;
-
-      const toggle = () => document.body.classList.toggle("lit");
-
-      bulb.addEventListener("click", toggle);
-      bulb.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          toggle();
-        }
-      });
-    })();
-
-    /* ================= DOG RUNS BETWEEN MAIN PROJECT CARDS ================= */
-    (function () {
-      const dog = document.getElementById("mascot");
-      const cards = Array.from(document.querySelectorAll(".main-projects .flip-card"));
-
-      if (!dog || cards.length === 0) return;
-
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-      function center(el) {
-        const r = el.getBoundingClientRect();
-        // place dog slightly above bottom edge of each card
-        return { x: r.left + r.width / 2, y: r.top + r.height - 18 };
-      }
-
-      async function moveTo(x, y, duration = 650) {
-        dog.style.setProperty("--move-ms", `${duration}ms`);
-        dog.style.left = `${x}px`;
-        dog.style.top = `${y}px`;
-
-        if (!reducedMotion) {
-          dog.classList.remove("run");
-          void dog.offsetWidth;
-          dog.classList.add("run");
-        }
-        await sleep(duration);
-      }
-
-      let idx = 0;
-      let busy = false;
-
-      async function loop() {
-        if (busy) return;
-        busy = true;
-
-        const el = cards[idx % cards.length];
-        const c = center(el);
-        await moveTo(c.x, c.y, 750);
-
-        idx++;
-        busy = false;
-      }
-
-      function snapToCurrent() {
-        const el = cards[(idx - 1 + cards.length) % cards.length] || cards[0];
-        const c = center(el);
-        dog.style.left = `${c.x}px`;
-        dog.style.top = `${c.y}px`;
-      }
-
-      // initial placement
-      const c0 = center(cards[0]);
-      dog.style.left = `${c0.x}px`;
-      dog.style.top = `${c0.y}px`;
-
-      // move periodically
-      setInterval(loop, 2200);
-
-      // keep aligned if viewport changes
-      window.addEventListener("resize", snapToCurrent);
-      window.addEventListener("scroll", snapToCurrent, { passive: true });
-    })();
-  </script>
+<canvas id="symbol-canvas"></canvas>
+
+<div class="bulb-wrap">
+  <div id="bulb" class="bulb"></div>
+</div>
+
+<div id="mascot" class="dog">🐕</div>
+
+<main class="container">
+
+<section>
+<h1>rotsl</h1>
+<p>Research Automation · Computer Vision · Embedded Systems · Applied ML</p>
+</section>
+
+<section>
+<h2>Main Projects</h2>
+
+<div class="projects">
+
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<h3>Wisp</h3>
+<p>Context-aware styling engine</p>
+</div>
+<div class="flip-back">
+<a href="https://github.com/rotsl/wisp" target="_blank">Repository</a><br>
+<a href="https://www.npmjs.com/package/@rotsl/wisp" target="_blank">npm package</a>
+</div>
+</div>
+</div>
+
+<div class="flip-card">
+<div class="flip-inner">
+<div class="flip-front">
+<h3>Weave</h3>
+<p>Web framework</p>
+</div>
+<div class="flip-back">
+<a href="https://github.com/rotsl/Weave" target="_blank">Repository</a><br>
+<a href="https://rotsl.github.io/Weave/" target="_blank">Live website</a>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2>Publications</h2>
+
+<div class="flip-card small">
+<div class="flip-inner">
+<div class="flip-front">
+<h3>Research Papers</h3>
+</div>
+<div class="flip-back">
+<ul>
+<li>
+<a href="https://www.researchgate.net/publication/400789148_Wisp_A_Context-Aware_Zero-Dependency_Semantic_Styling_Engine_for_the_Modern_Web" target="_blank">
+Wisp: A Context-Aware Zero-Dependency Semantic Styling Engine
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</section>
+
+</main>
+
+<script src="theme.js"></script>
+<script>
+
+/* SYMBOL OVERLAY */
+const canvas = document.getElementById("symbol-canvas");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const symbols = ["λ","∇","π","Σ","μ","α","β","Δ","∞","⊗"];
+const particles = Array.from({length:30},()=>({
+  x:Math.random()*canvas.width,
+  y:Math.random()*canvas.height,
+  vx:(Math.random()-0.5)*1,
+  vy:(Math.random()-0.5)*1,
+  s:symbols[Math.floor(Math.random()*symbols.length)],
+  size:20
+}));
+
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle="rgba(255,255,255,0.15)";
+  particles.forEach(p=>{
+    p.x+=p.vx;
+    p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width) p.vx*=-1;
+    if(p.y<0||p.y>canvas.height) p.vy*=-1;
+    ctx.font=p.size+"px serif";
+    ctx.fillText(p.s,p.x,p.y);
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+
+/* DOG MOVEMENT */
+const dog=document.getElementById("mascot");
+const cards=document.querySelectorAll(".flip-card");
+let i=0;
+
+function moveDog(){
+  const r=cards[i].getBoundingClientRect();
+  dog.style.left=r.left+r.width/2+"px";
+  dog.style.top=r.bottom-10+"px";
+  i=(i+1)%cards.length;
+}
+window.addEventListener("load",moveDog);
+setInterval(moveDog,2000);
+
+</script>
 
 </body>
 </html>
