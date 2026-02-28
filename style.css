@@ -1,172 +1,240 @@
-:root {
-  --bg: #0f172a;
-  --text: #e5e7eb;
-  --muted: #94a3b8;
-  --card: #020617;
-  --border: #334155;
-  --accent: #38bdf8;
+:root{
+  --bg: #0b1020;
+  --bg2:#0d1633;
+  --card: rgba(255,255,255,0.08);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.65);
+  --muted2: rgba(255,255,255,0.5);
+  --line: rgba(255,255,255,0.14);
+  --accent: #7dd3fc;
+  --accent2:#a78bfa;
+  --shadow: 0 16px 60px rgba(0,0,0,0.35);
 }
 
-[data-theme="light"] {
-  --bg: #f8fafc;
-  --text: #020617;
-  --muted: #475569;
-  --card: #ffffff;
-  --border: #cbd5f5;
-  --accent: #0284c7;
-}
-
-* {
+*{
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  background: var(--bg);
+html, body{
+  height:100%;
+}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height:1.6;
   color: var(--text);
-  letter-spacing: 0.1px;
+  background:
+    radial-gradient(1200px 800px at 20% 10%, #172554 0%, transparent 55%),
+    radial-gradient(900px 700px at 85% 25%, #3b0764 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  overflow-x:hidden;
 }
 
-h1, h2, h3 {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  letter-spacing: 0;
+/* ================= BACKGROUND GRID ================= */
+
+.bg{
+  position:fixed;
+  inset:0;
+  z-index:-1;
 }
 
-h1 {
-  font-size: 2.2rem;
-  font-weight: 600;
+.grid-bg{
+  position:absolute;
+  inset:0;
+  opacity:0.12;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image: radial-gradient(closest-side at 50% 30%, rgba(0,0,0,0.9), transparent 85%);
 }
 
-h2 {
-  font-size: 1.35rem;
-  font-weight: 600;
+/* ================= LAYOUT ================= */
+
+.shell{
+  width:min(1100px, calc(100% - 2rem));
+  margin:0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0 3rem;
+  position:relative;
+  z-index:2;
 }
 
-h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
+.card,
+.card-section{
+  background: linear-gradient(180deg, var(--card) 0%, rgba(255,255,255,0.05) 100%);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom:2rem;
 }
 
-.subtitle {
-  font-size: 0.95rem;
-  color: var(--muted);
-  max-width: 700px;
+/* ================= TYPOGRAPHY ================= */
+
+.hero{
+  text-align:center;
+  margin-top:6vh;
 }
 
-
-button {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
+h1{
+  margin:0 0 0.6rem;
+  font-size: clamp(2.6rem, 6vw, 3.4rem);
+  letter-spacing:-0.02em;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-section {
-  margin-bottom: 60px;
+h2{
+  margin:0 0 1.5rem;
+  font-size:1.3rem;
+  letter-spacing:-0.01em;
 }
 
-h2 {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 6px;
-  margin-bottom: 25px;
+h3{
+  margin:0 0 0.5rem;
+  font-size:1.05rem;
 }
 
-/* ---------- Flip Cards ---------- */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
+.subtitle{
+  margin:0.3rem 0 0.9rem;
+  font-size:1.05rem;
+  color:var(--muted);
 }
 
-.flip-card {
-  perspective: 1000px;
+.muted{
+  color:var(--muted);
 }
 
-.flip-inner {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
+.tiny{
+  font-size:0.85rem;
+  color:var(--muted2);
 }
 
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
+/* ================= GRID ================= */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:1.4rem;
 }
 
-.flip-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* ================= FLIP CARDS ================= */
+
+.flip-card{
+  perspective:1000px;
 }
 
-.flip-front h3 {
-  margin: 0 0 10px;
+.flip-inner{
+  position:relative;
+  width:100%;
+  height:220px;
+  transform-style:preserve-3d;
+  transition:transform 0.6s;
 }
 
-.flip-front p {
-  color: var(--muted);
-  font-size: 0.95rem;
+.flip-card:hover .flip-inner{
+  transform:rotateY(180deg);
 }
 
-.flip-back {
-  transform: rotateY(180deg);
-  text-align: center;
+.flip-face{
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  border-radius:14px;
+  padding:1.2rem;
+  background: rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.14);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  transition: border 0.25s ease, transform 0.25s ease;
 }
 
-.flip-back p {
-  font-size: 0.95rem;
-  margin-bottom: 15px;
+.flip-face:hover{
+  border-color: rgba(125,211,252,0.55);
 }
 
-.flip-back a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
+.flip-front p{
+  color:var(--muted);
+  font-size:0.95rem;
 }
 
-.footer {
-  margin-top: 80px;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-/* Smaller card variant for side projects */
-.flip-card.small .flip-inner {
-  height: 170px;
+.flip-back{
+  transform:rotateY(180deg);
+  text-align:center;
 }
 
-.flip-card.small .flip-front h3 {
-  font-size: 1.05rem;
+.flip-back p{
+  font-size:0.95rem;
+  margin-bottom:12px;
 }
 
-.flip-card.small .flip-front p,
-.flip-card.small .flip-back p {
-  font-size: 0.85rem;
+.flip-back a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:500;
+  transition:opacity 0.2s ease;
 }
 
-/* Side projects list */
-.side-list {
-  text-align: left;
-  margin-top: 10px;
+.flip-back a:hover{
+  text-decoration:underline;
+  opacity:0.9;
 }
 
-.side-list li {
-  margin-bottom: 6px;
+/* ================= SMALL VARIANT ================= */
+
+.flip-card.small .flip-inner{
+  height:170px;
 }
 
-.side-list a {
-  color: var(--accent);
-  text-decoration: none;
+.flip-card.small h3{
+  font-size:1rem;
 }
 
+.flip-card.small p{
+  font-size:0.85rem;
+}
+
+/* ================= LISTS ================= */
+
+.side-list{
+  text-align:left;
+  padding-left:1rem;
+  margin-top:10px;
+}
+
+.side-list li{
+  margin-bottom:6px;
+  font-size:0.9rem;
+}
+
+.side-list a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.side-list a:hover{
+  text-decoration:underline;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+  text-align:center;
+  color:var(--muted2);
+  padding-top:1rem;
+  font-size:0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 640px){
+  .flip-inner{
+    height:200px;
+  }
+}
