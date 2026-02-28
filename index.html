@@ -1,46 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>rotsl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO -->
   <meta name="description" content="rotsl — research automation, computer vision, embedded systems, and applied machine learning projects." />
   <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="rotsl" />
-  <meta property="og:description" content="Research automation, computer vision, embedded systems, and applied ML projects." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://rotsl.github.io/" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="rotsl" />
-  <meta name="twitter:description" content="Research automation and applied computer vision portfolio." />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="container">
 
-    <!-- HEADER -->
-    <header>
-      <div>
-        <h1>rotsl</h1>
-        <p class="subtitle">
-          Research Automation · Computer Vision · Embedded Systems · Applied ML
-        </p>
-      </div>
+  <!-- Background -->
+  <div class="bg" aria-hidden="true">
+    <div class="grid-bg"></div>
+  </div>
 
-      <button id="theme-toggle">Toggle theme</button>
-    </header>
+  <main class="shell">
 
+    <!-- HERO -->
+    <section class="hero card">
+      <h1>rotsl</h1>
+      <p class="subtitle">
+        Research Automation · Computer Vision · Embedded Systems · Applied ML
+      </p>
+    </section>
 
     <!-- ================= MAIN PROJECTS ================= -->
-    <section>
+    <section class="card-section">
       <h2>Main Projects</h2>
 
       <div class="grid">
@@ -52,25 +41,16 @@
               <h3>🌬️ Wisp</h3>
               <p>Context-aware, zero-dependency UI engine for the modern web.</p>
             </div>
-
             <div class="flip-face flip-back">
               <p>
                 Context-aware semantic styling engine that analyzes HTML structure
                 and auto-generates optimized CSS. Published on npm with 5KB footprint.
               </p>
-
-              <a href="https://github.com/rotsl/wisp" target="_blank">
-                View repository
-              </a>
-              <br />
-
-              <a href="https://www.npmjs.com/package/@rotsl/wisp" target="_blank">
-                npm package →
-              </a>
+              <a href="https://github.com/rotsl/wisp" target="_blank">View repository</a><br/>
+              <a href="https://www.npmjs.com/package/@rotsl/wisp" target="_blank">npm package →</a>
             </div>
           </div>
         </div>
-
 
         <!-- Weave -->
         <div class="flip-card">
@@ -79,30 +59,17 @@
               <h3>🧵 Weave</h3>
               <p>Lightweight web weaving & dependency management framework.</p>
             </div>
-
             <div class="flip-face flip-back">
               <p>
                 Modular utility framework for building structured, reusable web
                 components. Distributed via npm with live demo support.
               </p>
-
-              <a href="https://github.com/rotsl/Weave" target="_blank">
-                View repository
-              </a>
-              <br />
-
-              <a href="https://www.npmjs.com/package/@rotsl/weave" target="_blank">
-                npm package →
-              </a>
-              <br />
-
-              <a href="https://rotsl.github.io/Weave/" target="_blank">
-                Live website →
-              </a>
+              <a href="https://github.com/rotsl/Weave" target="_blank">View repository</a><br/>
+              <a href="https://www.npmjs.com/package/@rotsl/weave" target="_blank">npm package →</a><br/>
+              <a href="https://rotsl.github.io/Weave/" target="_blank">Live website →</a>
             </div>
           </div>
         </div>
-
 
         <!-- DermaScanAI -->
         <div class="flip-card">
@@ -111,20 +78,15 @@
               <h3>🩺 DermaScanAI</h3>
               <p>AI-powered dermatological analysis and scanning system.</p>
             </div>
-
             <div class="flip-face flip-back">
               <p>
                 Computer vision system for dermatological image analysis
                 using deep learning techniques for skin condition detection.
               </p>
-
-              <a href="https://github.com/rorexus/DermaScanAI" target="_blank">
-                View repository
-              </a>
+              <a href="https://github.com/rorexus/DermaScanAI" target="_blank">View repository</a>
             </div>
           </div>
         </div>
-
 
         <!-- Automator -->
         <div class="flip-card">
@@ -133,21 +95,15 @@
               <h3>Automator</h3>
               <p>Research automation system for microbial plate imaging.</p>
             </div>
-
             <div class="flip-face flip-back">
               <p>
                 Research automation system for imaging microbial plates.
-                Includes physical operator controls and software-based
-                safety mechanisms.
+                Includes physical operator controls and software-based safety mechanisms.
               </p>
-
-              <a href="https://github.com/rotsl/Automator" target="_blank">
-                View repository
-              </a>
+              <a href="https://github.com/rotsl/Automator" target="_blank">View repository</a>
             </div>
           </div>
         </div>
-
 
         <!-- Image Processing -->
         <div class="flip-card">
@@ -156,16 +112,12 @@
               <h3>Image Processing (scikit-image)</h3>
               <p>Classical computer vision pipelines and experiments.</p>
             </div>
-
             <div class="flip-face flip-back">
               <p>
                 Image processing experiments using scikit-image for
                 segmentation, filtering, and analysis.
               </p>
-
-              <a href="https://github.com/rotsl/IMGProcessingScikit" target="_blank">
-                View repository
-              </a>
+              <a href="https://github.com/rotsl/IMGProcessingScikit" target="_blank">View repository</a>
             </div>
           </div>
         </div>
@@ -173,13 +125,11 @@
       </div>
     </section>
 
-
     <!-- ================= SIDE PROJECTS ================= -->
-    <section>
+    <section class="card-section">
       <h2>Side Projects</h2>
 
       <div class="grid">
-
         <div class="flip-card small">
           <div class="flip-inner">
 
@@ -190,40 +140,28 @@
 
             <div class="flip-face flip-back">
               <ul class="side-list">
-
                 <li>
-                  <a href="https://github.com/rotsl/automator-pi" target="_blank">
-                    Automator Pi
-                  </a>
+                  <a href="https://github.com/rotsl/automator-pi" target="_blank">Automator Pi</a>
                   — iOS app for Automator
                 </li>
-
                 <li>
-                  <a href="https://github.com/rotsl/diagnostics-pi" target="_blank">
-                    Diagnostics Pi
-                  </a>
+                  <a href="https://github.com/rotsl/diagnostics-pi" target="_blank">Diagnostics Pi</a>
                   — iOS diagnostics app for Automator
                 </li>
-
                 <li>
-                  <a href="https://github.com/rotsl/gpubuild" target="_blank">
-                    GPU Build Automation
-                  </a>
+                  <a href="https://github.com/rotsl/gpubuild" target="_blank">GPU Build Automation</a>
                   — Physical GPU system setup tooling
                 </li>
-
               </ul>
             </div>
 
           </div>
         </div>
-
       </div>
     </section>
 
-
     <!-- ================= PUBLICATIONS ================= -->
-    <section>
+    <section class="card-section">
       <h2>Publications</h2>
 
       <div class="grid">
@@ -231,15 +169,12 @@
         <!-- Research Papers -->
         <div class="flip-card small">
           <div class="flip-inner">
-
             <div class="flip-face flip-front">
               <h3>Research Papers</h3>
               <p>Academic publications and technical papers.</p>
             </div>
-
             <div class="flip-face flip-back">
               <ul class="side-list">
-
                 <li>
                   <a href="https://www.researchgate.net/publication/400789148_Wisp_A_Context-Aware_Zero-Dependency_Semantic_Styling_Engine_for_the_Modern_Web"
                      target="_blank">
@@ -247,73 +182,39 @@
                   </a>
                   — Research paper (2024)
                 </li>
-
               </ul>
             </div>
-
           </div>
         </div>
-
 
         <!-- Electronics For You -->
         <div class="flip-card small">
           <div class="flip-inner">
-
             <div class="flip-face flip-front">
               <h3>Electronics For You</h3>
               <p>Selected technical publications.</p>
             </div>
-
             <div class="flip-face flip-back">
               <ul class="side-list">
-
-                <li>
-                  <a href="https://www.researchgate.net/publication/295402254_Air_Ioniser" target="_blank">
-                    Air Ioniser
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.researchgate.net/publication/295402356_Micro_Inverter" target="_blank">
-                    Micro Inverter
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.researchgate.net/publication/295402434_Sequential_device_switching_using_IR" target="_blank">
-                    Sequential Device Switching Using IR
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.researchgate.net/publication/295402237_Some_projects_using_wearable_devices" target="_blank">
-                    Projects Using Wearable Devices
-                  </a>
-                </li>
-
-                <li>
-                  <a href="https://www.researchgate.net/publication/295402442_Remote_Control" target="_blank">
-                    Remote Control
-                  </a>
-                </li>
-
+                <li><a href="https://www.researchgate.net/publication/295402254_Air_Ioniser" target="_blank">Air Ioniser</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402356_Micro_Inverter" target="_blank">Micro Inverter</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402434_Sequential_device_switching_using_IR" target="_blank">Sequential Device Switching Using IR</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402237_Some_projects_using_wearable_devices" target="_blank">Projects Using Wearable Devices</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402442_Remote_Control" target="_blank">Remote Control</a></li>
               </ul>
             </div>
-
           </div>
         </div>
 
       </div>
     </section>
 
-
     <!-- FOOTER -->
-    <div class="footer">
-      © rotsl — hosted on GitHub Pages 😊
-    </div>
+    <footer class="footer">
+      © rotsl · GitHub Pages
+    </footer>
 
-  </div>
+  </main>
 
-  <script src="theme.js"></script>
 </body>
 </html>
