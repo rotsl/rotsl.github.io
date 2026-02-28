@@ -1,27 +1,30 @@
-/* ================= DOG MOVING BETWEEN SECTIONS ================= */
+/* ================= WAIT UNTIL DOM LOADS ================= */
 
-const dog = document.getElementById("mascot");
-const sections = document.querySelectorAll("section");
+window.addEventListener("DOMContentLoaded", () => {
 
-let currentSection = 0;
+  const dog = document.getElementById("mascot");
+  const sections = document.querySelectorAll("section");
+  const bulb = document.getElementById("bulb");
 
-function moveDog() {
-  const rect = sections[currentSection].getBoundingClientRect();
-  const absoluteTop = window.scrollY + rect.top + rect.height - 40;
+  let currentSection = 0;
 
-  dog.style.top = absoluteTop + "px";
+  function moveDog() {
+    const section = sections[currentSection];
+    const rect = section.getBoundingClientRect();
 
-  currentSection = (currentSection + 1) % sections.length;
-}
+    const absoluteTop = window.scrollY + rect.top + rect.height - 20;
 
-moveDog();
-setInterval(moveDog, 4000);
+    dog.style.top = absoluteTop + "px";
 
+    currentSection = (currentSection + 1) % sections.length;
+  }
 
-/* ================= BULB TOGGLE LIGHT ================= */
+  moveDog();
+  setInterval(moveDog, 4000);
 
-const bulb = document.getElementById("bulb");
+  /* Bulb toggle */
+  bulb.addEventListener("click", () => {
+    document.body.classList.toggle("light-on");
+  });
 
-bulb.addEventListener("click", () => {
-  document.body.classList.toggle("light-on");
 });
