@@ -1,15 +1,32 @@
-const toggleBtn = document.getElementById("theme-toggle");
-const root = document.documentElement;
+// theme.js — bulb-based lighting only
 
-const savedTheme = localStorage.getItem("theme");
-if (savedTheme) {
-  root.setAttribute("data-theme", savedTheme);
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-toggleBtn.addEventListener("click", () => {
-  const current = root.getAttribute("data-theme");
-  const next = current === "light" ? "dark" : "light";
+  const bulb = document.getElementById("bulb");
+  const body = document.body;
 
-  root.setAttribute("data-theme", next);
-  localStorage.setItem("theme", next);
+  if (!bulb) return;
+
+  // restore saved light state
+  const saved = localStorage.getItem("lab-light");
+  if (saved === "on") {
+    body.classList.add("lit");
+  }
+
+  function toggleLight() {
+    body.classList.toggle("lit");
+
+    const state = body.classList.contains("lit") ? "on" : "off";
+    localStorage.setItem("lab-light", state);
+  }
+
+  bulb.addEventListener("click", toggleLight);
+
+  bulb.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleLight();
+    }
+  });
+
 });
