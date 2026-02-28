@@ -1,114 +1,315 @@
 :root{
-  --bg:#0b1020;
-  --bg2:#0d1633;
-  --card:rgba(255,255,255,0.08);
-  --text:rgba(255,255,255,0.92);
-  --muted:rgba(255,255,255,0.65);
-  --line:rgba(255,255,255,0.14);
-  --accent:#7dd3fc;
-  --accent2:#a78bfa;
-  --shadow:0 16px 60px rgba(0,0,0,0.35);
+  /* greener/teal lab vibe */
+  --bg:  #061514;
+  --bg2: #0b2a24;
+
+  --card: rgba(255,255,255,0.085);
+  --text: rgba(255,255,255,0.94);
+  --muted: rgba(255,255,255,0.72);
+  --muted2: rgba(255,255,255,0.55);
+
+  --line: rgba(255,255,255,0.16);
+
+  /* accents tuned slightly greener */
+  --accent:  #6ee7b7;  /* mint */
+  --accent2: #7dd3fc;  /* soft blue */
+  --shadow:  0 16px 60px rgba(0,0,0,0.40);
 }
 
-*{box-sizing:border-box;}
+*{ box-sizing:border-box; }
+
+html, body{ height:100%; }
 
 body{
   margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  line-height:1.6;
   color:var(--text);
   background:
-    radial-gradient(1200px 800px at 20% 10%, #172554 0%, transparent 55%),
-    radial-gradient(900px 700px at 85% 25%, #3b0764 0%, transparent 60%),
-    linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
-  overflow-x:hidden;
+    radial-gradient(1200px 800px at 18% 12%, rgba(16,185,129,0.28) 0%, transparent 55%),
+    radial-gradient(900px 700px at 86% 22%, rgba(34,211,238,0.22) 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+  overflow-x:hidden; /* allow normal vertical scrolling if needed */
 }
 
-/* Symbol overlay */
+/* ================= SYMBOL CANVAS OVERLAY ================= */
+/* Overlay means: you see it ON TOP of content, but it doesn't push layout or block clicks */
 #symbol-canvas{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:1000;
+  position: fixed;
+  inset: 0;
+  z-index: 30;         /* above content, below bulb+dog */
+  pointer-events: none;
+  display: block;
 }
 
-/* Layout */
+/* ================= LAYOUT ================= */
 .shell{
-  width:min(1100px,calc(100% - 2rem));
-  margin:auto;
-  padding:3rem 0;
-  position:relative;
-  z-index:10;
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.25rem) 0 3rem;
+  position: relative;
+  z-index: 10; /* content is below overlay canvas */
 }
 
-.card, .card-section{
-  background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.05));
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:1.5rem;
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(10px);
-  margin-bottom:2rem;
+.card,
+.card-section{
+  background: linear-gradient(180deg, var(--card) 0%, rgba(255,255,255,0.05) 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  margin-bottom: 1.6rem;
 }
 
-h1{
-  font-size:3rem;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  -webkit-background-clip:text;
-  color:transparent;
-  margin:0;
-}
-
-.subtitle{color:var(--muted);}
-
-/* Main Projects cards */
-.main-projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:1.5rem;
-}
-
-.project-card{
-  background:rgba(255,255,255,0.06);
-  padding:1rem;
-  border-radius:12px;
-  border:1px solid var(--line);
+.hero{
   text-align:center;
-  display:flex;
-  flex-direction:column;
-  gap:0.6rem;
+  margin-top: 3vh;
 }
 
-.project-card h3{margin:0;}
-.project-card a{
-  color:var(--accent);
-  text-decoration:none;
+/* ================= TYPE ================= */
+h1{
+  margin: 0 0 0.55rem;
+  font-size: clamp(2.6rem, 6vw, 3.4rem);
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
-.project-card a:hover{text-decoration:underline;}
 
-/* Publications */
-.publications ul{
-  list-style-type:disc;
-  padding-left:1.4rem;
+h2{
+  margin: 0 0 1.25rem;
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
 }
-.publications a{color:var(--accent);}
 
-/* Bulb */
-.bulb-wrap{position:fixed; top:0; right:60px; z-index:500;}
-.bulb{width:80px; height:200px; cursor:pointer; animation:swing 6s ease-in-out infinite;}
-@keyframes swing{0%,100%{transform:rotate(2deg);}50%{transform:rotate(-2deg);}}
-.cord{position:absolute;top:0;left:50%;width:3px;height:120px;background:rgba(255,255,255,0.7);transform:translateX(-50%);}
-.socket{position:absolute;top:110px;left:50%;width:40px;height:25px;background:rgba(255,255,255,0.3);border-radius:6px;transform:translateX(-50%);}
-.glass{position:absolute;top:135px;left:50%;width:60px;height:60px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.4),rgba(255,255,255,0.05));transform:translateX(-50%);}
-.glow{position:absolute;top:135px;left:50%;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(255,246,210,0.45),transparent);opacity:0;transition:opacity .4s;transform:translateX(-50%);}
-.light-overlay{position:fixed;inset:0;background:radial-gradient(circle at top right,rgba(255,246,210,0.35),transparent);opacity:0;transition:opacity .4s;z-index:200;}
-body.lit .glow{opacity:1;}
-body.lit .light-overlay{opacity:1;}
+h3{
+  margin: 0 0 0.55rem;
+  font-size: 1.08rem;
+}
 
-/* Dog */
-.dog{
-  position:fixed;
-  pointer-events:none;
-  font-size:36px;
-  z-index:500;
-  transition:left .9s ease, top .9s ease;
+.subtitle{
+  margin: 0.25rem 0 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+/* ================= GRID ================= */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.35rem;
+}
+
+/* ================= FLIP CARDS ================= */
+.flip-card{ perspective: 1000px; }
+
+.flip-inner{
+  position: relative;
+  width: 100%;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-inner{ transform: rotateY(180deg); }
+
+.flip-face{
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 14px;
+  padding: 1.2rem;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.16);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.flip-front p{
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.flip-back{
+  transform: rotateY(180deg);
+  text-align: center;
+}
+
+.flip-back p{
+  font-size: 0.95rem;
+  margin: 0 0 0.85rem;
+  color: rgba(255,255,255,0.88);
+}
+
+/* links restored + clearly visible */
+.flip-back a,
+.side-list a{
+  color: var(--accent2);
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.flip-back a:hover,
+.side-list a:hover{
+  text-decoration: underline;
+}
+
+/* Smaller card variant */
+.flip-card.small .flip-inner{ height: 170px; }
+.flip-card.small .flip-front p,
+.flip-card.small .flip-back p{ font-size: 0.88rem; }
+
+/* Side list */
+.side-list{
+  text-align: left;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.side-list li{ margin-bottom: 0.35rem; }
+
+/* Footer */
+.footer{
+  text-align:center;
+  color: var(--muted2);
+  padding: 0.8rem 0 0;
+}
+
+/* ================= BULB (TOP-RIGHT) ================= */
+.bulb-wrap{
+  position: fixed;
+  top: 0;
+  right: 26px;     /* top-right corner */
+  z-index: 60;
+  pointer-events: none; /* only bulb itself clickable */
+}
+
+.bulb{
+  position: relative;
+  width: 92px;
+  height: 220px;
+  transform-origin: 50% 0%;
+  animation: swing 6.5s ease-in-out infinite;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@keyframes swing{
+  0%,100%{ transform: rotate(1.5deg); }
+  50%{ transform: rotate(-1.8deg); }
+}
+
+.cord{
+  position:absolute; top:0; left:50%;
+  width:3px; height:120px; transform:translateX(-50%);
+  background: rgba(255,255,255,0.40); border-radius:2px;
+}
+
+.socket{
+  position:absolute; top:110px; left:50%;
+  width:54px; height:38px; transform:translateX(-50%);
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 10px 10px 14px 14px;
+  backdrop-filter: blur(6px);
+}
+
+.glass{
+  position:absolute; top:140px; left:50%;
+  width:78px; height:78px; transform:translateX(-50%);
+  border-radius:50%;
+  background: radial-gradient(circle at 35% 30%,
+      rgba(255,255,255,0.35) 0%,
+      rgba(255,255,255,0.12) 38%,
+      rgba(255,255,255,0.06) 70%,
+      rgba(255,255,255,0.03) 100%);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.filament{
+  position:absolute; top:163px; left:50%;
+  width:34px; height:22px; transform:translateX(-50%);
+  border-radius:14px;
+  border: 2px solid rgba(255,255,255,0.25);
+  opacity: 0.7;
+}
+
+.glow{
+  position:absolute; top:140px; left:50%;
+  width:340px; height:340px; transform:translateX(-50%);
+  border-radius:50%;
+  background: radial-gradient(circle,
+    rgba(236,253,245,0.00) 0%,
+    rgba(236,253,245,0.00) 30%,
+    rgba(236,253,245,0.12) 55%,
+    rgba(236,253,245,0.00) 75%);
+  opacity: 0;
+  transition: opacity 450ms ease;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Lighting overlay */
+.light-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 25;          /* below symbols canvas (30), above content (10) */
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 500ms ease;
+  background:
+    radial-gradient(900px 650px at calc(100% - 80px) 190px,
+      rgba(236,253,245,0.30) 0%,
+      rgba(236,253,245,0.18) 28%,
+      rgba(236,253,245,0.08) 45%,
+      rgba(236,253,245,0.00) 70%);
+}
+
+/* Lights ON */
+body.lit .light-overlay{ opacity: 1; }
+body.lit .bulb .glow{ opacity: 1; }
+body.lit .card,
+body.lit .card-section{
+  background: linear-gradient(180deg, rgba(255,255,255,0.11) 0%, rgba(255,255,255,0.07) 100%);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* ================= DOG MASCOT ================= */
+.mascot{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 70;        /* above canvas & bulb glow */
+  transform: translate(-50%, -50%);
+  font-size: 34px;
+  opacity: 0.98;
+  pointer-events: none;
+  transition:
+    left var(--move-ms, 650ms) cubic-bezier(.2,.8,.2,1),
+    top  var(--move-ms, 650ms) cubic-bezier(.2,.8,.2,1),
+    transform 220ms ease;
+}
+
+.mascot.run{
+  animation: dogRun 520ms ease-in-out;
+}
+
+@keyframes dogRun{
+  0%{transform:translate(-50%, -50%) scale(1)}
+  30%{transform:translate(-50%, calc(-50% - 12px)) scale(1.06,0.94)}
+  55%{transform:translate(-50%, calc(-50% - 5px)) scale(0.98,1.02)}
+  100%{transform:translate(-50%, -50%) scale(1)}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .bulb{ animation: none !important; }
+  .mascot.run{ animation: none !important; }
 }
