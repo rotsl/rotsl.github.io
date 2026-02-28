@@ -4,23 +4,56 @@
   <meta charset="UTF-8" />
   <title>rotsl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <meta name="description" content="rotsl — research automation, computer vision, embedded systems, and applied machine learning projects." />
   <meta name="robots" content="index, follow" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- Background -->
+  <!-- ================= BACKGROUND ================= -->
+
   <div class="bg" aria-hidden="true">
     <div class="grid-bg"></div>
+
+    <div class="floaters">
+      <span class="floater f1">λ</span>
+      <span class="floater f2">∇</span>
+      <span class="floater f3">π</span>
+      <span class="floater f4">Σ</span>
+      <span class="floater f5">μ</span>
+      <span class="floater f6">⚙</span>
+      <span class="floater f7">α</span>
+      <span class="floater f8">β</span>
+      <span class="floater f9">Δ</span>
+      <span class="floater f10">∞</span>
+      <span class="floater f11">⊗</span>
+      <span class="floater f12">🦠</span>
+    </div>
   </div>
+
+  <!-- ================= BULB ================= -->
+
+  <div class="bulb-wrap">
+    <div id="bulb" class="bulb" role="button" tabindex="0">
+      <div class="cord"></div>
+      <div class="socket"></div>
+      <div class="glass"></div>
+      <div class="filament"></div>
+      <div class="glow"></div>
+    </div>
+  </div>
+
+  <div id="light-overlay" class="light-overlay"></div>
+
+  <!-- ================= DOG MASCOT ================= -->
+
+  <div id="mascot" class="mascot">🐕</div>
+
+  <!-- ================= MAIN CONTENT ================= -->
 
   <main class="shell">
 
-    <!-- HERO -->
     <section class="hero card">
       <h1>rotsl</h1>
       <p class="subtitle">
@@ -29,10 +62,11 @@
     </section>
 
     <!-- ================= MAIN PROJECTS ================= -->
+
     <section class="card-section">
       <h2>Main Projects</h2>
 
-      <div class="grid">
+      <div class="grid main-projects">
 
         <!-- Wisp -->
         <div class="flip-card">
@@ -61,8 +95,7 @@
             </div>
             <div class="flip-face flip-back">
               <p>
-                Modular utility framework for building structured, reusable web
-                components. Distributed via npm with live demo support.
+                Modular utility framework for building structured, reusable web components.
               </p>
               <a href="https://github.com/rotsl/Weave" target="_blank">View repository</a><br/>
               <a href="https://www.npmjs.com/package/@rotsl/weave" target="_blank">npm package →</a><br/>
@@ -81,7 +114,7 @@
             <div class="flip-face flip-back">
               <p>
                 Computer vision system for dermatological image analysis
-                using deep learning techniques for skin condition detection.
+                using deep learning techniques.
               </p>
               <a href="https://github.com/rorexus/DermaScanAI" target="_blank">View repository</a>
             </div>
@@ -97,76 +130,23 @@
             </div>
             <div class="flip-face flip-back">
               <p>
-                Research automation system for imaging microbial plates.
-                Includes physical operator controls and software-based safety mechanisms.
+                Imaging microbial plates with physical controls and safety mechanisms.
               </p>
               <a href="https://github.com/rotsl/Automator" target="_blank">View repository</a>
             </div>
           </div>
         </div>
 
-        <!-- Image Processing -->
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>Image Processing (scikit-image)</h3>
-              <p>Classical computer vision pipelines and experiments.</p>
-            </div>
-            <div class="flip-face flip-back">
-              <p>
-                Image processing experiments using scikit-image for
-                segmentation, filtering, and analysis.
-              </p>
-              <a href="https://github.com/rotsl/IMGProcessingScikit" target="_blank">View repository</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ================= SIDE PROJECTS ================= -->
-    <section class="card-section">
-      <h2>Side Projects</h2>
-
-      <div class="grid">
-        <div class="flip-card small">
-          <div class="flip-inner">
-
-            <div class="flip-face flip-front">
-              <h3>Supporting & Utility Projects</h3>
-              <p>Automation tooling and companion applications.</p>
-            </div>
-
-            <div class="flip-face flip-back">
-              <ul class="side-list">
-                <li>
-                  <a href="https://github.com/rotsl/automator-pi" target="_blank">Automator Pi</a>
-                  — iOS app for Automator
-                </li>
-                <li>
-                  <a href="https://github.com/rotsl/diagnostics-pi" target="_blank">Diagnostics Pi</a>
-                  — iOS diagnostics app for Automator
-                </li>
-                <li>
-                  <a href="https://github.com/rotsl/gpubuild" target="_blank">GPU Build Automation</a>
-                  — Physical GPU system setup tooling
-                </li>
-              </ul>
-            </div>
-
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- ================= PUBLICATIONS ================= -->
+
     <section class="card-section">
       <h2>Publications</h2>
 
       <div class="grid">
 
-        <!-- Research Papers -->
         <div class="flip-card small">
           <div class="flip-inner">
             <div class="flip-face flip-front">
@@ -180,27 +160,7 @@
                      target="_blank">
                     Wisp: A Context-Aware Zero-Dependency Semantic Styling Engine
                   </a>
-                  — Research paper (2024)
                 </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- Electronics For You -->
-        <div class="flip-card small">
-          <div class="flip-inner">
-            <div class="flip-face flip-front">
-              <h3>Electronics For You</h3>
-              <p>Selected technical publications.</p>
-            </div>
-            <div class="flip-face flip-back">
-              <ul class="side-list">
-                <li><a href="https://www.researchgate.net/publication/295402254_Air_Ioniser" target="_blank">Air Ioniser</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402356_Micro_Inverter" target="_blank">Micro Inverter</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402434_Sequential_device_switching_using_IR" target="_blank">Sequential Device Switching Using IR</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402237_Some_projects_using_wearable_devices" target="_blank">Projects Using Wearable Devices</a></li>
-                <li><a href="https://www.researchgate.net/publication/295402442_Remote_Control" target="_blank">Remote Control</a></li>
               </ul>
             </div>
           </div>
@@ -209,12 +169,67 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
       © rotsl · GitHub Pages
     </footer>
 
   </main>
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script>
+
+  /* Bulb toggle */
+  (function(){
+    const bulb = document.getElementById("bulb");
+    const toggle = () => document.body.classList.toggle("lit");
+
+    bulb.addEventListener("click", toggle);
+    bulb.addEventListener("keydown", (e)=>{
+      if(e.key==="Enter" || e.key===" "){
+        e.preventDefault();
+        toggle();
+      }
+    });
+  })();
+
+  /* Dog runs between main project cards */
+  (function(){
+    const dog = document.getElementById("mascot");
+    const cards = Array.from(document.querySelectorAll(".main-projects .flip-card"));
+
+    if(!dog || cards.length===0) return;
+
+    const sleep = (ms)=> new Promise(r=>setTimeout(r,ms));
+
+    function center(el){
+      const r = el.getBoundingClientRect();
+      return { x:r.left+r.width/2, y:r.top+r.height+20 };
+    }
+
+    async function moveTo(x,y){
+      dog.style.left = x+"px";
+      dog.style.top = y+"px";
+      await sleep(1000);
+    }
+
+    let i=0;
+
+    async function loop(){
+      const target=center(cards[i%cards.length]);
+      await moveTo(target.x,target.y);
+      i++;
+    }
+
+    const first=center(cards[0]);
+    dog.style.left=first.x+"px";
+    dog.style.top=first.y+"px";
+
+    setInterval(loop,2200);
+
+  })();
+
+  </script>
 
 </body>
 </html>
