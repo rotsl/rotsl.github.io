@@ -1,141 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>rotsl</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rotsl</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<canvas id="symbol-canvas"></canvas>
+  <!-- Symbol Overlay -->
+  <canvas id="symbol-canvas"></canvas>
 
-<div class="bulb-wrap">
-  <div id="bulb" class="bulb"></div>
-</div>
+  <!-- Hanging Bulb -->
+  <div class="bulb-wrap">
+    <div id="bulb" class="bulb" role="button" tabindex="0"></div>
+  </div>
 
-<div id="mascot" class="dog">🐕</div>
+  <!-- Dog Mascot -->
+  <div id="mascot" class="mascot">🐕</div>
 
-<main class="container">
+  <main class="shell">
 
-<section>
-<h1>rotsl</h1>
-<p>Research Automation · Computer Vision · Embedded Systems · Applied ML</p>
-</section>
+    <!-- HERO -->
+    <section>
+      <h1>rotsl</h1>
+      <p class="subtitle">
+        Research Automation · Computer Vision · Embedded Systems · Applied ML
+      </p>
+    </section>
 
-<section>
-<h2>Main Projects</h2>
+    <!-- ================= MAIN PROJECTS ================= -->
+    <section>
+      <h2>Main Projects</h2>
 
-<div class="projects">
+      <div class="grid main-projects">
 
-<div class="flip-card">
-<div class="flip-inner">
-<div class="flip-front">
-<h3>Wisp</h3>
-<p>Context-aware styling engine</p>
-</div>
-<div class="flip-back">
-<a href="https://github.com/rotsl/wisp" target="_blank">Repository</a><br>
-<a href="https://www.npmjs.com/package/@rotsl/wisp" target="_blank">npm package</a>
-</div>
-</div>
-</div>
+        <!-- Wisp -->
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <h3>🌬️ Wisp</h3>
+              <p>Context-aware, zero-dependency UI engine for the modern web.</p>
+            </div>
 
-<div class="flip-card">
-<div class="flip-inner">
-<div class="flip-front">
-<h3>Weave</h3>
-<p>Web framework</p>
-</div>
-<div class="flip-back">
-<a href="https://github.com/rotsl/Weave" target="_blank">Repository</a><br>
-<a href="https://rotsl.github.io/Weave/" target="_blank">Live website</a>
-</div>
-</div>
-</div>
+            <div class="flip-face flip-back">
+              <p>Semantic styling engine with optimized CSS generation.</p>
 
-</div>
-</section>
+              <a href="https://github.com/rotsl/wisp" target="_blank">
+                View repository
+              </a>
+              <br />
+              <a href="https://www.npmjs.com/package/@rotsl/wisp" target="_blank">
+                npm package →
+              </a>
+            </div>
+          </div>
+        </div>
 
-<section>
-<h2>Publications</h2>
+        <!-- Weave -->
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <h3>🧵 Weave</h3>
+              <p>Lightweight web weaving framework.</p>
+            </div>
 
-<div class="flip-card small">
-<div class="flip-inner">
-<div class="flip-front">
-<h3>Research Papers</h3>
-</div>
-<div class="flip-back">
-<ul>
-<li>
-<a href="https://www.researchgate.net/publication/400789148_Wisp_A_Context-Aware_Zero-Dependency_Semantic_Styling_Engine_for_the_Modern_Web" target="_blank">
-Wisp: A Context-Aware Zero-Dependency Semantic Styling Engine
-</a>
-</li>
-</ul>
-</div>
-</div>
-</div>
+            <div class="flip-face flip-back">
+              <p>Reusable modular component framework.</p>
 
-</section>
+              <a href="https://github.com/rotsl/Weave" target="_blank">
+                View repository
+              </a>
+              <br />
+              <a href="https://www.npmjs.com/package/@rotsl/weave" target="_blank">
+                npm package →
+              </a>
+              <br />
+              <a href="https://rotsl.github.io/Weave/" target="_blank">
+                Live website →
+              </a>
+            </div>
+          </div>
+        </div>
 
-</main>
+        <!-- DermaScanAI -->
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <h3>🩺 DermaScanAI</h3>
+              <p>AI-powered dermatological analysis system.</p>
+            </div>
 
-<script src="theme.js"></script>
-<script>
+            <div class="flip-face flip-back">
+              <p>Deep learning-based skin condition detection.</p>
 
-/* SYMBOL OVERLAY */
-const canvas = document.getElementById("symbol-canvas");
-const ctx = canvas.getContext("2d");
+              <a href="https://github.com/rorexus/DermaScanAI" target="_blank">
+                View repository
+              </a>
+            </div>
+          </div>
+        </div>
 
-function resize(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
+        <!-- Automator -->
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <h3>Automator</h3>
+              <p>Research automation system for microbial imaging.</p>
+            </div>
 
-const symbols = ["λ","∇","π","Σ","μ","α","β","Δ","∞","⊗"];
-const particles = Array.from({length:30},()=>({
-  x:Math.random()*canvas.width,
-  y:Math.random()*canvas.height,
-  vx:(Math.random()-0.5)*1,
-  vy:(Math.random()-0.5)*1,
-  s:symbols[Math.floor(Math.random()*symbols.length)],
-  size:20
-}));
+            <div class="flip-face flip-back">
+              <p>Lab automation with software safety mechanisms.</p>
 
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="rgba(255,255,255,0.15)";
-  particles.forEach(p=>{
-    p.x+=p.vx;
-    p.y+=p.vy;
-    if(p.x<0||p.x>canvas.width) p.vx*=-1;
-    if(p.y<0||p.y>canvas.height) p.vy*=-1;
-    ctx.font=p.size+"px serif";
-    ctx.fillText(p.s,p.x,p.y);
-  });
-  requestAnimationFrame(animate);
-}
-animate();
+              <a href="https://github.com/rotsl/Automator" target="_blank">
+                View repository
+              </a>
+            </div>
+          </div>
+        </div>
 
-/* DOG MOVEMENT */
-const dog=document.getElementById("mascot");
-const cards=document.querySelectorAll(".flip-card");
-let i=0;
+      </div>
+    </section>
 
-function moveDog(){
-  const r=cards[i].getBoundingClientRect();
-  dog.style.left=r.left+r.width/2+"px";
-  dog.style.top=r.bottom-10+"px";
-  i=(i+1)%cards.length;
-}
-window.addEventListener("load",moveDog);
-setInterval(moveDog,2000);
+    <!-- ================= PUBLICATIONS ================= -->
+    <section>
+      <h2>Publications</h2>
 
-</script>
+      <div class="grid">
+
+        <!-- Research Papers -->
+        <div class="flip-card small">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <h3>Research Papers</h3>
+            </div>
+
+            <div class="flip-face flip-back">
+              <ul class="side-list">
+                <li>
+                  <a href="https://www.researchgate.net/publication/400789148_Wisp_A_Context-Aware_Zero-Dependency_Semantic_Styling_Engine_for_the_Modern_Web"
+                     target="_blank">
+                    Wisp: A Context-Aware Zero-Dependency Semantic Styling Engine
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Electronics For You -->
+        <div class="flip-card small">
+          <div class="flip-inner">
+            <div class="flip-face flip-front">
+              <h3>Electronics For You</h3>
+            </div>
+
+            <div class="flip-face flip-back">
+              <ul class="side-list">
+                <li><a href="https://www.researchgate.net/publication/295402254_Air_Ioniser" target="_blank">Air Ioniser</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402356_Micro_Inverter" target="_blank">Micro Inverter</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402434_Sequential_device_switching_using_IR" target="_blank">Sequential Device Switching Using IR</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402237_Some_projects_using_wearable_devices" target="_blank">Projects Using Wearable Devices</a></li>
+                <li><a href="https://www.researchgate.net/publication/295402442_Remote_Control" target="_blank">Remote Control</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      © rotsl · GitHub Pages
+    </footer>
+
+  </main>
+
+  <script src="theme.js"></script>
 
 </body>
 </html>
