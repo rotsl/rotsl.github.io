@@ -1,17 +1,17 @@
 :root{
-  --bg: #0b1020;
+  --bg:#0b1020;
   --bg2:#0d1633;
-  --card: rgba(255,255,255,0.08);
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.65);
-  --muted2: rgba(255,255,255,0.5);
-  --line: rgba(255,255,255,0.14);
-  --accent: #7dd3fc;
+  --card:rgba(255,255,255,0.08);
+  --text:rgba(255,255,255,0.92);
+  --muted:rgba(255,255,255,0.65);
+  --muted2:rgba(255,255,255,0.5);
+  --line:rgba(255,255,255,0.14);
+  --accent:#7dd3fc;
   --accent2:#a78bfa;
-  --shadow: 0 16px 60px rgba(0,0,0,0.35);
+  --shadow:0 16px 60px rgba(0,0,0,0.35);
 }
 
-*{ box-sizing:border-box; }
+*{box-sizing:border-box;}
 
 html,body{
   height:100%;
@@ -29,107 +29,51 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= BACKGROUND GRID ================= */
+/* ================= SYMBOL CANVAS (OVER CONTENT) ================= */
 
-.bg{
+#symbol-canvas{
   position:fixed;
   inset:0;
-  z-index:-2;
+  z-index:50;          /* above content */
+  pointer-events:none; /* does not block interaction */
 }
-
-.grid-bg{
-  position:absolute;
-  inset:0;
-  opacity:0.12;
-  background-image:
-    linear-gradient(to right, rgba(255,255,255,0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.12) 1px, transparent 1px);
-  background-size:64px 64px;
-  mask-image: radial-gradient(closest-side at 50% 30%, rgba(0,0,0,0.9), transparent 85%);
-}
-
-/* ================= FLOATING SYMBOLS ================= */
-
-.floaters{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-}
-
-.floater{
-  position:absolute;
-  font-weight:700;
-  opacity:0.22;
-  animation: drift 20s ease-in-out infinite;
-  user-select:none;
-}
-
-@keyframes drift{
-  0%,100%{ transform:translate(0,0) rotate(0deg);}
-  50%{ transform:translate(30px,-25px) rotate(12deg);}
-}
-
-.f1{left:8%;top:18%;font-size:44px;}
-.f2{left:78%;top:12%;font-size:52px;}
-.f3{left:20%;top:70%;font-size:40px;}
-.f4{left:60%;top:64%;font-size:56px;}
-.f5{left:42%;top:22%;font-size:46px;}
-.f6{left:88%;top:72%;font-size:48px;}
-.f7{left:10%;top:45%;font-size:34px;}
-.f8{left:52%;top:82%;font-size:42px;}
-.f9{left:30%;top:8%;font-size:58px;}
-.f10{left:70%;top:40%;font-size:44px;}
-.f11{left:5%;top:85%;font-size:50px;}
-.f12{left:92%;top:30%;font-size:38px;}
 
 /* ================= LAYOUT ================= */
 
 .shell{
-  width:min(1100px, calc(100% - 2rem));
-  margin:0 auto;
-  padding:clamp(2rem,5vw,4rem) 0 3rem;
+  width:min(1100px,calc(100% - 2rem));
+  margin:auto;
+  padding:3rem 0;
   position:relative;
-  z-index:2;
+  z-index:10;
 }
 
 .card,
 .card-section{
-  background:linear-gradient(180deg,var(--card) 0%,rgba(255,255,255,0.05) 100%);
+  background:linear-gradient(180deg,var(--card),rgba(255,255,255,0.05));
   border:1px solid var(--line);
   border-radius:16px;
-  padding:clamp(1.2rem,3vw,1.8rem);
+  padding:1.5rem;
   box-shadow:var(--shadow);
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
   margin-bottom:2rem;
 }
 
-/* ================= TYPOGRAPHY ================= */
-
 .hero{
   text-align:center;
-  margin-top:6vh;
 }
 
 h1{
-  margin:0 0 0.6rem;
-  font-size:clamp(2.6rem,6vw,3.4rem);
-  letter-spacing:-0.02em;
+  font-size:3rem;
+  margin:0 0 0.5rem;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   -webkit-background-clip:text;
-  background-clip:text;
   color:transparent;
 }
 
 h2{
-  margin:0 0 1.5rem;
-  font-size:1.3rem;
-}
-
-h3{
-  margin:0 0 0.5rem;
-  font-size:1.05rem;
+  margin-bottom:1.2rem;
 }
 
 .subtitle{
@@ -140,8 +84,8 @@ h3{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1.4rem;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1.5rem;
 }
 
 /* ================= FLIP CARDS ================= */
@@ -152,10 +96,9 @@ h3{
 
 .flip-inner{
   position:relative;
-  width:100%;
-  height:220px;
+  height:190px;
+  transition:transform .6s;
   transform-style:preserve-3d;
-  transition:transform 0.6s;
 }
 
 .flip-card:hover .flip-inner{
@@ -165,29 +108,19 @@ h3{
 .flip-face{
   position:absolute;
   inset:0;
-  backface-visibility:hidden;
-  border-radius:14px;
-  padding:1.2rem;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.14);
   display:flex;
-  flex-direction:column;
+  align-items:center;
   justify-content:center;
-  transition:border 0.25s ease;
-}
-
-.flip-face:hover{
-  border-color:rgba(125,211,252,0.55);
-}
-
-.flip-front p{
-  color:var(--muted);
-  font-size:0.95rem;
+  padding:1rem;
+  text-align:center;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,0.06);
+  backface-visibility:hidden;
 }
 
 .flip-back{
   transform:rotateY(180deg);
-  text-align:center;
 }
 
 .flip-back a{
@@ -214,28 +147,27 @@ h3{
   margin-bottom:6px;
 }
 
-/* ================= BULB ================= */
+/* ================= BULB (RIGHT CORNER) ================= */
 
 .bulb-wrap{
   position:fixed;
   top:0;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:5;
+  right:60px;
+  z-index:60;
 }
 
 .bulb{
+  width:80px;
+  height:200px;
   position:relative;
-  width:92px;
-  height:220px;
+  cursor:pointer;
   transform-origin:50% 0%;
   animation:swing 6s ease-in-out infinite;
-  cursor:pointer;
 }
 
 @keyframes swing{
-  0%,100%{transform:rotate(1.5deg);}
-  50%{transform:rotate(-1.8deg);}
+  0%,100%{transform:rotate(2deg);}
+  50%{transform:rotate(-2deg);}
 }
 
 .cord{
@@ -244,71 +176,71 @@ h3{
   left:50%;
   width:3px;
   height:120px;
+  background:rgba(255,255,255,0.7);
   transform:translateX(-50%);
-  background:rgba(255,255,255,0.35);
 }
 
 .socket{
   position:absolute;
   top:110px;
   left:50%;
-  width:54px;
-  height:38px;
+  width:40px;
+  height:25px;
+  background:rgba(255,255,255,0.3);
   transform:translateX(-50%);
-  background:rgba(255,255,255,0.18);
-  border-radius:10px;
+  border-radius:6px;
 }
 
 .glass{
   position:absolute;
-  top:140px;
+  top:135px;
   left:50%;
-  width:78px;
-  height:78px;
-  transform:translateX(-50%);
+  width:60px;
+  height:60px;
   border-radius:50%;
+  transform:translateX(-50%);
   background:radial-gradient(circle,
-    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.4),
     rgba(255,255,255,0.05));
 }
 
 .glow{
   position:absolute;
-  top:140px;
+  top:135px;
   left:50%;
-  width:340px;
-  height:340px;
-  transform:translateX(-50%);
+  width:260px;
+  height:260px;
   border-radius:50%;
+  transform:translateX(-50%);
   background:radial-gradient(circle,
-    rgba(255,246,210,0.4) 0%,
-    rgba(255,246,210,0.0) 70%);
+    rgba(255,246,210,0.45),
+    transparent 70%);
   opacity:0;
-  transition:opacity 400ms ease;
+  transition:opacity .4s;
 }
 
 .light-overlay{
   position:fixed;
   inset:0;
-  z-index:-1;
-  background:radial-gradient(circle at 50% 200px,
+  background:radial-gradient(circle at top right,
     rgba(255,246,210,0.35),
     transparent 70%);
   opacity:0;
-  transition:opacity 400ms ease;
+  transition:opacity .4s;
+  z-index:5;
 }
 
-body.lit .glow{ opacity:1; }
-body.lit .light-overlay{ opacity:1; }
+body.lit .glow{opacity:1;}
+body.lit .light-overlay{opacity:1;}
 
-/* ================= DOG MASCOT ================= */
+/* ================= DOG ================= */
 
-.mascot{
+.dog{
   position:fixed;
   font-size:32px;
-  z-index:10;
   pointer-events:none;
   transition:left 1s ease, top 1s ease;
+  z-index:55;
 }
 
 /* ================= FOOTER ================= */
@@ -324,6 +256,6 @@ body.lit .light-overlay{ opacity:1; }
 
 @media(max-width:640px){
   .flip-inner{
-    height:200px;
+    height:170px;
   }
 }
